@@ -3,8 +3,8 @@
 /**
 * File description
 *
-* @author James Dowd <talraen@gmail.com>
-* @copyright 2012 James Dowd
+* @author Aaron Liu <aaronliu12@gmail.com>
+* @copyright 2015 Aaron Liu
 */
 
 $context = stream_context_create(array(
