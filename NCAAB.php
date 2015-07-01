@@ -50,25 +50,31 @@ while ($line = fgetcsv($fh)) {
 
 foreach ($teams_array as $key => $team) {
 	foreach (${$team . "losses"} as $loss => $betterteam) {
-		foreach (${$team . "wins"} as $win => $worseteams) {
-			foreach(${$worseteams[0]. "wins"} as $newteam => $teamname){
-				if($betterteam[0] == $teamname[0]){
-					break 2;
-				}	
-			}
-				foreach (${$teamname[0] . "wins"} as $key => $value) {
-					if(isset(${$betterteam[0]."betterthan"}) == false){
-						${$betterteam[0]."betterthan"} = array();
+		if(isset(${$team . "wins"})){
+			foreach (${$team . "wins"} as $win => $worseteams) {
+				if(isset(${$worseteams[0]. "wins"})){
+					foreach(${$worseteams[0]. "wins"} as $newteam => $teamname){
+						if($betterteam[0] == $teamname[0]){
+							break 2;
+						}	
 					}
-					else{
-						if(in_array($value[0], ${$betterteam[0]."betterthan"}) == false){
-							array_push(${$betterteam[0]."betterthan"}, $value[0]);
-						}		
-					}
-		
-				}
+						if(isset(${$teamname[0]. "wins"})){
+							foreach (${$teamname[0] . "wins"} as $key => $value) {
+								if(isset(${$betterteam[0]."betterthan"}) == false){
+									${$betterteam[0]."betterthan"} = array();
+								}
+								else{
+									if(in_array($value[0], ${$betterteam[0]."betterthan"}) == false){
+										array_push(${$betterteam[0]."betterthan"}, $value[0]);
+									}		
+								}
+					
+							}
+						}	
 
-		}
+				}
+			}	
+		}	
 	}
 }
 print_r($Michiganbetterthan);
