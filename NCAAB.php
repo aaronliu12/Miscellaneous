@@ -59,6 +59,22 @@ foreach ($teams_array as $key => $team) {
 							}	
 						}
 							if(isset(${$teamname[0]. "wins"})){
+/*								if(isset(${$betterteam[0]."betterthan"}) == false){
+									${$betterteam[0]."betterthan"} = array();
+								}
+								else{
+									if(in_array($teamname[0], ${$betterteam[0]."betterthan"}) == false){
+										if(isset(${$betterteam[0]."losses"})){
+											foreach (${$betterteam[0]."losses"} as $losses => $teamloss) {
+												if($teamloss[0] == $teamname[0]){
+													break 2;
+												}
+											}
+										}	
+										array_push(${$betterteam[0]."betterthan"}, $teamname[0]);	
+									}		
+								}*/
+
 								foreach (${$teamname[0] . "wins"} as $key => $value) {
 									if(isset(${$betterteam[0]."betterthan"}) == false){
 										${$betterteam[0]."betterthan"} = array();
@@ -99,6 +115,10 @@ arsort($ranking);
 $counting_var = 1;
 foreach ($ranking as $key => $value) {
 	echo $counting_var . ". ";
-	echo $key . "\r\n";
+	echo $key . " ";
+	echo $value . "<br />";
+
 	$counting_var += 1;
 }
+
+print_r($Kansasbetterthan);
