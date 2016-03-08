@@ -9,7 +9,7 @@
 
 $context = stream_context_create(array(
 	'http' => array(
-		'proxy' => 'tcp://proxyanbcge.nbc.com:80',
+		'proxy' => ''=,
 		'request_fulluri' => true,
 	),
 ));
